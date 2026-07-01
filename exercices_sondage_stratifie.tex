@@ -1,0 +1,114 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\geometry{margin=2.5cm}
+
+\title{Trois exercices sur l'allocation optimale en sondage stratifié}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Consigne générale}
+Pour chaque exercice, on suppose que l'on cherche une allocation optimale dans un sondage stratifié.  
+Les données numériques sont fournies dans des fichiers Excel séparés afin de pouvoir être exploitées directement dans une application de calcul.
+
+\bigskip
+\noindent Fichiers de données associés :
+\begin{itemize}[leftmargin=2em]
+    \item \texttt{exercice\_1\_sondage\_stratifie.xlsx}
+    \item \texttt{exercice\_2\_sondage\_stratifie.xlsx}
+    \item \texttt{exercice\_3\_sondage\_stratifie.xlsx}
+\end{itemize}
+
+\section{Exercice 1 : allocation optimale pour une seule variable}
+On considère une population divisée en quatre strates.
+
+Le fichier \texttt{exercice\_1\_sondage\_stratifie.xlsx} contient, pour chaque strate :
+\begin{itemize}[leftmargin=2em]
+    \item l'effectif \texttt{Nh},
+    \item les quasi-variances \texttt{S2\_T}, \texttt{S2\_Y} et \texttt{S2\_Z}.
+\end{itemize}
+
+On veut déterminer les entiers positifs $n_h$ qui minimisent
+\[
+n = \sum_h n_h
+\]
+sous la contrainte principale
+\[
+\mathrm{Var}(T) \leq \alpha_T.
+\]
+On vérifiera ensuite que les allocations obtenues respectent aussi les bornes
+\[
+\mathrm{Var}(Y) \leq \alpha_Y
+\qquad \text{et} \qquad
+\mathrm{Var}(Z) \leq \alpha_Z.
+\]
+
+\textbf{Travail demandé :}
+\begin{enumerate}[leftmargin=2em]
+    \item Calculer l'allocation optimale.
+    \item Donner les fractions de sondage $f_h$.
+    \item Calculer les trois variances finales.
+    \item Interpréter la strate la plus coûteuse en taille d'échantillon.
+\end{enumerate}
+
+\section{Exercice 2 : allocation simultanée pour trois variables}
+Le fichier \texttt{exercice\_2\_sondage\_stratifie.xlsx} contient cinq strates et les informations nécessaires à l'optimisation.
+
+On cherche maintenant à résoudre :
+\[
+\min \sum_h n_h
+\]
+sous les contraintes
+\[
+\mathrm{Var}(T) \leq \alpha_T, \qquad
+\mathrm{Var}(Y) \leq \alpha_Y, \qquad
+\mathrm{Var}(Z) \leq \alpha_Z.
+\]
+
+\textbf{Travail demandé :}
+\begin{enumerate}[leftmargin=2em]
+    \item Déterminer les $n_h$ optimaux entiers positifs.
+    \item Calculer la taille totale optimale $n$.
+    \item Comparer les contributions à la variance par strate.
+    \item Commenter l'influence des strates les plus dispersées.
+\end{enumerate}
+
+\section{Exercice 3 : comparaison entre allocation proportionnelle et allocation optimale}
+Le fichier \texttt{exercice\_3\_sondage\_stratifie.xlsx} contient une population plus contrastée.
+
+On demande de comparer :
+\begin{itemize}[leftmargin=2em]
+    \item une allocation proportionnelle,
+    \item une allocation optimale sous contraintes de variance.
+\end{itemize}
+
+\textbf{Travail demandé :}
+\begin{enumerate}[leftmargin=2em]
+    \item Calculer une allocation proportionnelle de référence.
+    \item Calculer l'allocation optimale.
+    \item Comparer les tailles totales obtenues.
+    \item Comparer les variances finales et mesurer le gain apporté par l'optimisation.
+\end{enumerate}
+
+\section*{Rappel de la formule de variance}
+Pour une variable quelconque $X$, la variance du sondage stratifié est donnée par
+\[
+\mathrm{Var}(X)
+=
+\sum_h
+\left(\frac{N_h}{N}\right)^2
+\left(\frac{1-f_h}{n_h}\right)
+S_h^2(X),
+\qquad
+f_h = \frac{n_h}{N_h}.
+\]
+
+\end{document}
